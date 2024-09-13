@@ -10,6 +10,7 @@ export default function Home() {
   const [minute, setMinute] = useState("");
   const [second, setSecond] = useState("");
   const [color, setColor] = useState(false);
+  const [button,setButton]=useState(false)
  
 
   const handleMinute = (e) => {
@@ -23,7 +24,7 @@ export default function Home() {
   };
   const startHandler = (e) => {
     setClick(true);
-    
+    setButton(false)
   };
   const pauseHandler = () => {
     setClick((pre) => !pre);
@@ -35,6 +36,7 @@ export default function Home() {
     setClick(false);
     setMinute(oldminute);
     setSecond(oldsecond);
+     setButton(true)
   };
 
   useEffect(() => {
@@ -81,7 +83,7 @@ export default function Home() {
         max="59"
       />
       <button onClick={startHandler}>Start</button>
-      <button style={{ backgroundColor: newColor }} onClick={pauseHandler}>
+      <button  disabled={button}   style={{ backgroundColor: newColor }} onClick={pauseHandler}>
         Pause/Resume
       </button>
       <button onClick={stopHandler}>Reset</button>
