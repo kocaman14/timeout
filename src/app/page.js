@@ -81,7 +81,7 @@ export default function Home() {
         max="59"
       />
       <button onClick={startHandler}>Start</button>
-      <button disabled={button} style={{ backgroundColor: newColor }} onClick={pauseHandler}>
+      <button style={{ backgroundColor: newColor }} onClick={pauseHandler}>
         Pause/Resume
       </button>
       <button onClick={stopHandler}>Reset</button>
