@@ -10,8 +10,7 @@ export default function Home() {
   const [minute, setMinute] = useState("");
   const [second, setSecond] = useState("");
   const [color, setColor] = useState(false);
-  const [reset,setReset] =useState(false)
-  const [button,setButton]=useState(null)
+ 
 
   const handleMinute = (e) => {
     setMinute(e.target.value);
@@ -24,21 +23,18 @@ export default function Home() {
   };
   const startHandler = (e) => {
     setClick(true);
-    setMinute(oldminute);
-    setSecond(oldsecond);
-    setReset(false)
-    setButton(false)
+    
   };
   const pauseHandler = () => {
     setClick((pre) => !pre);
     setColor((pre) => !pre);
-    setButton(false)
+   
   };
 
   const stopHandler = () => {
     setClick(false);
-    setReset(true)
-    setButton(true)
+    setMinute(oldminute);
+    setSecond(oldsecond);
   };
 
   useEffect(() => {
@@ -91,7 +87,7 @@ export default function Home() {
       <button onClick={stopHandler}>Reset</button>
 
       <p>
-        {reset?"00:00":click
+     {click
           ? `${zeroNumber}${minute}:${seconZero}${second}`
           : `${zeroNumber}${minute}:${seconZero}${second}`}
        
