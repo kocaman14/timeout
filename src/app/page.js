@@ -25,6 +25,10 @@ export default function Home() {
   const startHandler = (e) => {
     setClick(true);
     setButton(false)
+    if (!click) {
+      setMinute(oldminute);
+      setSecond(oldsecond);
+    }
   };
   const pauseHandler = () => {
     setClick((pre) => !pre);
@@ -34,9 +38,9 @@ export default function Home() {
 
   const stopHandler = () => {
     setClick(false);
-    setMinute(oldminute);
-    setSecond(oldsecond);
      setButton(true)
+   setMinute("")
+    setSecond("")
   };
 
   useEffect(() => {
